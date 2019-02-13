@@ -28,6 +28,7 @@ let createUserData = (start, end) => {
   return result;
 };
 
+
 module.exports = () => {
   db.connection.query(dataSql, createUserData(1, 1000001))
     .then((data) => {
