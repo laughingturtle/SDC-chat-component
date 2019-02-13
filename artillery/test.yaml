@@ -1,0 +1,11 @@
+config:
+  target: "http://127.0.0.1:3028"
+  phases:
+    - duration: 10
+      arrivalRate: 1
+scenarios:
+  - flow:
+      - get:
+          url: "/users"
+          json:
+            id: "9009009"
