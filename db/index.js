@@ -20,7 +20,8 @@ const sequelize = new Sequelize('twitchchat', 'postgres', 'fish22', {
 const User = sequelize.define('users', {
   id: {
     type: Sequelize.INTEGER,
-    primaryKey: true,
+    autoIncrement: true,
+    primaryKey: true
   },
   username: {
     type: Sequelize.STRING
@@ -76,6 +77,46 @@ const grabUsernameFromDb = (id) => {
       console.error('from db', err);
     });
 };
+const createUserRecord = (data) => {
+  console.log('data:', data);
+  return User.create({username: 'flipfloop', twitch_sub: true, mod_status: false, color: 'pink' })
+    .then((data) => {
+      console.log('my user = ', data.dataValues);
+      //return user.dataValues;
+    })
+    .catch((err)=> {
+      console.error('from db', err);
+    });
+};
+
+const updateUsernameFromDb = (id) => {
+  return User.update({username: 'flopflink', twitch_sub: true, mod_status: false, color: 'ostrich cream' },
+    {where: {
+      id: id
+    }
+    })
+    .then((foundUser) => {
+      console.log('user updated ');
+    })
+    .catch((err)=> {
+      console.error('from db', err);
+    });
+};
+
+const deleteUsernameFromDb = (id) => {
+  return User.destroy({
+    where: {
+      id: id
+    }
+  })
+    .then((foundUser) => {
+      console.log('user deleted ');
+    })
+    .catch((err)=> {
+      console.error('from db', err);
+    });
+};
+
 
 ////////////* sequelize above .||. mongoose below */////////////
 
@@ -113,4 +154,7 @@ const grabUsernameFromDb = (id) => {
 // };
 
 
+module.exports = deleteUsernameFromDb;
+module.exports = createUserRecord;
+module.exports = updateUsernameFromDb;
 module.exports = grabUsernameFromDb;
