@@ -1,6 +1,6 @@
+require('dotenv').config();
 const { Client } = require('pg');
 
-/* EC2 */
 const connection = new Client({
   user: process.env.PSQL_USERNAME,
   host: process.env.PSQL_HOSTNAME,
