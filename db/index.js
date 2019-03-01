@@ -1,8 +1,9 @@
+require('dotenv').config();
 const Sequelize = require('sequelize');
 //const sampleUsers = require('./seedData.js');
 
-const sequelize = new Sequelize('twitchchat', 'postgres', 'fish22', {
-  host: 'localhost',
+const sequelize = new Sequelize(process.env.PSQL_DB_NAME, process.env.PSQL_USERNAME, process.env.PSQL_PASSWORD, {
+  host:  process.env.PSQL_HOSTNAME,
   dialect: 'postgres',
   operatorsAliases: false,
   define: {
