@@ -9,7 +9,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['SDC Chat Component - Local'],
+  app_name: ['SDC Chat Component - EC2'],
   /**
    * Your New Relic license key.
    */
