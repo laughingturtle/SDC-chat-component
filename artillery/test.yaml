@@ -2,7 +2,7 @@ config:
   target: "http://127.0.0.1:3028"
   phases:
     - duration: 10
-      arrivalRate: 1
+      arrivalRate: 10000
 scenarios:
   - flow:
       - get:
